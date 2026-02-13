@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Art 3D Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #0a0a0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', Courier, monospace;
+      overflow: hidden;
+    }
+
+    .ascii-container {
+      perspective: 1000px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ascii-3d {
+      animation: rotate3d 8s linear infinite;
+      transform-style: preserve-3d;
+      text-align: center;
+    }
+
+    .ascii-3d pre {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      color: #00ff88;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+      white-space: pre;
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes rotate3d {
+      0% {
+        transform: rotateX(10deg) rotateY(0deg);
+      }
+      100% {
+        transform: rotateX(10deg) rotateY(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ascii-container">
+    <div class="ascii-3d">
+      <pre>{{ASCII_ART}}</pre>
+    </div>
+  </div>
+</body>
+</html>

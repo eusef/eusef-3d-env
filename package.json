@@ -1,0 +1,16 @@
+{
+  "name": "ascii-art-3d-demo",
+  "version": "1.0.0",
+  "description": "Node web app that displays environment variable text as 3D animated ASCII art",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:bg": "node start-server.js",
+    "stop": "node stop-server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "figlet": "^1.8.0"
+  }
+}
