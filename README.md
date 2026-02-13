@@ -1,6 +1,6 @@
 # ASCII Art 3D Demo
 
-A Node.js web application that reads an environment variable, converts its value to ASCII art using [figlet](https://www.npmjs.com/package/figlet), and displays it with a smooth 3D rotation animation.
+A Node.js web application that reads environment variables, converts `DISPLAY_TEXT` to ASCII art using [figlet](https://www.npmjs.com/package/figlet), and displays it with a smooth 3D rotation animation. A platform label (from `PLATFORM`) appears in red below the ASCII art.
 
 ## Installation
 
@@ -20,12 +20,18 @@ Or use the npm script:
 npm start
 ```
 
-The app will be available at **http://localhost:3000**.
+The app listens on `0.0.0.0` and is available at **http://localhost:3000**. On startup, the console prints clickable URLs for both localhost and your network IP address (when available).
 
 - **Foreground** (default): The server runs in the foreground—press **Ctrl+C** to stop it.
 - **Background**: Run `npm run start:bg` to start in the background, then `npm stop` to stop it.
 
-## Customizing the Display Text
+## Environment Variables
+
+### DISPLAY_TEXT
+
+The text to convert to ASCII art and display with 3D rotation.
+
+- **Default**: `"No .ENV Present!"` when not set
 
 **Option 1: Use a `.env` file** (recommended)
 
@@ -54,9 +60,28 @@ set DISPLAY_TEXT=Cursor Rules!
 node server.js
 ```
 
-If `DISPLAY_TEXT` is not set, the default is `"Hello World"`.
+### PLATFORM
+
+The platform label shown in red below the ASCII art.
+
+- **Default**: `"Development"` when not set
+
+Set when running:
+
+```bash
+PLATFORM=Production node server.js
+```
+
+Or add to `.env`:
+
+```
+PLATFORM=Production
+```
 
 ## Configuration
 
-- **PORT** – Server port (default: 3000)
-- **DISPLAY_TEXT** – Text to convert to ASCII art (default: "Hello World")
+| Variable     | Description                          | Default              |
+| ------------ | ------------------------------------ | -------------------- |
+| PORT         | Server port                          | 3000                 |
+| DISPLAY_TEXT | Text to convert to ASCII art         | `"No .ENV Present!"` |
+| PLATFORM     | Platform label (displayed in red)    | `"Development"`      |
