@@ -4,12 +4,11 @@
   "description": "Node web app that displays environment variable text as 3D animated ASCII art",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "op run --environment 6t2ipqelhb6rd4zojato2vu67a -- node server.js",
     "start:bg": "node start-server.js",
     "stop": "node stop-server.js"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "figlet": "^1.8.0"
   }
