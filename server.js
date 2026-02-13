@@ -9,6 +9,7 @@ const app = express();
 const PORT = 3000;
 
 const displayText = process.env.DISPLAY_TEXT || 'No .ENV Present!';
+const platform = process.env.PLATFORM || 'Development';
 
 function getLocalIpAddress() {
   const interfaces = os.networkInterfaces();
@@ -37,7 +38,9 @@ function getHtmlWithAsciiArt() {
   const asciiArt = figlet.textSync(displayText, { font: 'Standard' });
   const templatePath = path.join(__dirname, 'public', 'index.html');
   const template = fs.readFileSync(templatePath, 'utf8');
-  return template.replace('{{ASCII_ART}}', escapeHtml(asciiArt));
+  return template
+    .replace('{{ASCII_ART}}', escapeHtml(asciiArt))
+    .replace('{{PLATFORM}}', escapeHtml(platform));
 }
 
 app.get('/', (req, res) => {
