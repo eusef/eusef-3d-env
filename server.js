@@ -8,7 +8,7 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const displayText = process.env.DISPLAY_TEXT || 'Hello World';
+const displayText = process.env.DISPLAY_TEXT || 'No .ENV Present!';
 
 function escapeHtml(text) {
   return text
