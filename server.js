@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   res.send(getHtmlWithAsciiArt());
 });
 
-app.listen(PORT, '127.0.0.1', () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`ASCII Art 3D Demo running at http://localhost:${PORT}`);
   console.log(`Displaying: "${displayText}"`);
   console.log('Press Ctrl+C to stop');
